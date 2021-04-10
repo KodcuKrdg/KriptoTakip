@@ -6,6 +6,7 @@ using Microsoft.Data.Sqlite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.SQLite
 {
@@ -19,22 +20,27 @@ namespace DataAccess.Concrete.SQLite
             command = connection.CreateCommand();
         }
 
-        public void Add()
+        public void Add(Coin entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public void Delete(Coin entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Coin> GelAll()
+        public List<Coin> GelAll(Expression<Func<Coin, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public Coin Get(Expression<Func<Coin, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Coin entity)
         {
             throw new NotImplementedException();
         }

@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ICoinDal
+    public interface ICoinDal : IEntityRepository<Coin>
     {
-        List<Coin> GelAll();
-        void Add();
-        void Update();
-        void Delete();
+        
     }
 }
