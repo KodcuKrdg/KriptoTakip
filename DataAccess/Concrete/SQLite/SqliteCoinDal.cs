@@ -7,42 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.SQLite
 {
     public class SqliteCoinDal : ICoinDal
     {
-        SqliteConnection connection;
-        SqliteCommand command;
-        public SqliteCoinDal()
-        {
-            connection = new SqliteConnection("Data Source=Database.db");
-            command = connection.CreateCommand();
-        }
 
         public void Add(Coin entity)
         {
-            throw new NotImplementedException();
+            using (SQLiteDbContext context = new SQLiteDbContext())
+            {
+                var addedEntity = context.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Coin entity)
         {
-            throw new NotImplementedException();
+            using (SQLiteDbContext context = new SQLiteDbContext())
+            {
+                var deletedEntity = context.Entry(entity);
+                deletedEntity.State = EntityState.Detached;
+                context.SaveChanges();
+            }
         }
 
         public List<Coin> GelAll(Expression<Func<Coin, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            using (SQLiteDbContext context = new SQLiteDbContext())
+            {
+                return filter == null ? context.Set<Coin>().ToList() : context.Set<Coin>().Where(filter).ToList();
+            }
         }
 
         public Coin Get(Expression<Func<Coin, bool>> filter)
         {
-            throw new NotImplementedException();
+            using (SQLiteDbContext context = new SQLiteDbContext())
+            {
+                return context.Set<Coin>().SingleOrDefault(filter);
+            }
         }
 
         public void Update(Coin entity)
         {
-            throw new NotImplementedException();
+            using (SQLiteDbContext context = new SQLiteDbContext())
+            {
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

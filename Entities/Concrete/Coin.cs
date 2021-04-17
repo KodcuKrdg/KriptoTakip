@@ -12,8 +12,8 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal UnitBuyPrice { get; set; }
-        public short UnitsInStock { get; set; }
-        public float Percent { get; set; } //Yüzde
+        public int UnitsInStock { get; set; }
+        public decimal Percent { get; set; } //Yüzde
         public int UnitSelPrice { get; set; }
         public decimal Buy { get; set; }
         public decimal Sel { get; set; }

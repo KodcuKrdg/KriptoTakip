@@ -60,6 +60,7 @@ namespace KriptoTakip.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IndexForm";
             this.Text = "IndexForm";
+            this.Load += new System.EventHandler(this.IndexForm_Load);
             this.pnlTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
