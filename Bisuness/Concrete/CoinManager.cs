@@ -28,6 +28,11 @@ namespace Bisuness.Concrete
             _coinDal.Delete(coin);
         }
 
+        public Coin Get(int id)
+        {
+            return _coinDal.Get(p => p.Id == id);
+        }
+
         public List<Coin> GetAll()
         {
             return _coinDal.GelAll();

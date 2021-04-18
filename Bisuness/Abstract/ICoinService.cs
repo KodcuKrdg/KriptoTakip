@@ -13,5 +13,6 @@ namespace Bisuness.Abstract
         void Update(Coin coin);
         void Delete(Coin coin);
         List<Coin> GetAll();
+        Coin Get(int id);
     }
 }
